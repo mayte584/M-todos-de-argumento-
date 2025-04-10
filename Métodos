@@ -1,0 +1,80 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package metodos;
+/**
+ *
+ * @author jess
+ */
+public class Metodos {
+   public static void main(String[] args) {
+
+    // validar correo
+    String correo1 = "tics666kpfioriloco@gmail.com";
+    String correo2 = "demonsslayer@hotmail";
+    
+    System.out.println("¿Es un correo Gmail? " + ValidacionCorreo.esGmail(correo1));
+    System.out.println("¿Es un correo Gmail? " + ValidacionCorreo.esGmail(correo2));
+
+    // Calcular area
+    double radio = 20;
+    System.out.println("El área del círculo con radio " + radio + " es: " + CalculoArea.calcularAreaCirculo(radio));
+
+    // Contar vocales
+    String palabra = "Hola Mundo";
+    System.out.println("Las vocales en '" + palabra + "': " + ContadorVocales.contarVocales(palabra));
+
+    // numero es primo
+    int numero = 7;
+    System.out.println("¿" + numero + " es primo? " + NumeroPrimo.esPrimo(numero));
+    // Convertir mn a hr
+
+    int minutos = 130;
+    System.out.println(minutos + " minutos son: " + ConvertirMinutos.convertirHorasMinutos(minutos));
+
+   }
+    class ValidacionCorreo {
+public static boolean esGmail(String correo) {
+return correo.toLowerCase().endsWith("@gmail.com");
+}
+}
+
+class CalculoArea {
+public static double calcularAreaCirculo(double radio) {
+return Math.PI * Math.pow(radio, 2);
+}
+}
+
+class ContadorVocales {
+public static int contarVocales(String palabra) {
+int contador = 0;
+for (char c : palabra.toLowerCase().toCharArray()) {
+if ("aeiou".indexOf(c) != -1) {
+contador++;
+}
+}
+return contador;
+}
+}
+
+class NumeroPrimo {
+public static boolean esPrimo(int numero) {
+if (numero < 2) return false;
+for (int i = 2; i <= Math.sqrt(numero); i++) {
+if (numero % i == 0) return false;
+} 
+return true;
+}
+}
+
+class ConvertirMinutos {
+public static String convertirHorasMinutos(int minutos) {
+int horas = minutos / 60;
+int minRestantes = minutos % 60;
+return horas + " horas y " + minRestantes + " minutos";
+}
+
+}
+
+   }
